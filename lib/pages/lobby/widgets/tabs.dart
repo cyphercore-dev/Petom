@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:petom/pages/lobby/widgets/change_theme_buttom.dart';
 import 'package:petom/pages/shared/main_drawer.dart';
 import 'package:petom/pages/lobby/lobby_page.dart';
 import 'package:petom/pages/user_profile/user_profile_page.dart';
 import 'package:petom/pages/favourite/favs_page.dart';
 import 'package:petom/models/pet_model.dart';
+import 'package:petom/pages/wallet/wallet_page.dart';
 
 class TabsScreen extends StatefulWidget {
   static const routeName = '/tabs';
@@ -35,6 +37,10 @@ class _TabsScreenState extends State<TabsScreen> {
         'page': FavoritesScreen(widget.favoritePets),
         'title': 'Your Favorites',
       },
+      {
+        'page': WalletScreen(),
+        'title': 'Wallet',
+      },
     ];
     super.initState();
   }
@@ -49,7 +55,17 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(_pages[_selectedPageIndex]['title']),
+          iconTheme: Theme.of(context).iconTheme,
+          backgroundColor: Colors.transparent,
+          leading: Icon(Icons.menu),
+          title: Text(_pages[_selectedPageIndex]['title'],
+              style: TextStyle(
+                color: Theme.of(context).iconTheme.color,
+              )),
+          elevation: 0,
+          actions: [
+            ChangeThemeButtonWidget(),
+          ],
         ),
         drawer: MainDrawer(),
         body: _pages[_selectedPageIndex]['page'],
@@ -74,25 +90,30 @@ class _TabsScreenState extends State<TabsScreen> {
         //   ],
         // ),
         bottomNavigationBar: CurvedNavigationBar(
-          color: Colors.indigo,
-          backgroundColor: Color.fromRGBO(255, 254, 229, 1),
-          //buttonBackgroundColor: ,
+          color: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          buttonBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
           height: 50,
           items: <Widget>[
             Icon(
               Icons.chat_bubble,
               size: 25,
-              color: Colors.white,
+              color: Theme.of(context).iconTheme.color,
             ),
             Icon(
-              Icons.list,
+              Icons.house,
               size: 25,
-              color: Colors.white,
+              color: Theme.of(context).iconTheme.color,
             ),
             Icon(
               Icons.star,
               size: 25,
-              color: Colors.white,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            Icon(
+              Icons.account_balance_wallet,
+              size: 25,
+              color: Theme.of(context).iconTheme.color,
             ),
           ],
           index: 1,

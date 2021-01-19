@@ -8,7 +8,7 @@ class PetList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 360,
+      height: 450,
       child: ListView(
         padding: const EdgeInsets.only(left: 5, top: 20),
         children: DUMMY_PETS

@@ -69,7 +69,7 @@ class PetItem extends StatelessWidget {
                   IconButton(
                       icon: Icon(Icons.favorite_border),
                       iconSize: 30.0,
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).iconTheme.color,
                       // TO-DO: use provider to pass data around
                       onPressed: () => {} // toggleFavorite(pet.id),
                       ),
@@ -83,7 +83,6 @@ class PetItem extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 16.0,
-                  color: Colors.grey,
                 ),
               ),
             ),

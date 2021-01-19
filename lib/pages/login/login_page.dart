@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petom/animations/fade_animation.dart';
-import 'package:petom/pages/login/widgets/tabs.dart';
+import 'package:petom/pages/lobby/widgets/tabs.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';

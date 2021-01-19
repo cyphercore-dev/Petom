@@ -18,14 +18,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: <Widget>[
           Text("$fieldName".toUpperCase(),
               style: TextStyle(
-                color: Colors.indigo,
+                color: Theme.of(context).iconTheme.color, //Colors.indigo,
                 fontSize: 14.0,
                 fontFamily: 'Montserrat',
                 //fontWeight: FontWeight.bold,
               )),
           Text("$amount\K",
               style: TextStyle(
-                color: Colors.indigo,
+                color: Theme.of(context).iconTheme.color, //Colors.indigo,
                 fontSize: 13.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Montserrat',
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text("Corona Virus",
                         style: TextStyle(
                             fontFamily: 'Montserrat',
-                            color: Theme.of(context).primaryColor,
+                            color: Theme.of(context).iconTheme.color,
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold)),
                     Row(
@@ -113,12 +113,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           height: 30,
                           width: 80,
                           decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.circular(18.0)),
                           child: Center(
                               child: Text("FOLLOW".toUpperCase(),
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Theme.of(context).iconTheme.color,
                                       fontFamily: 'Montserrat',
                                       fontSize: 10.0,
                                       fontWeight: FontWeight.bold))),
@@ -130,12 +130,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           decoration: BoxDecoration(
                               border:
                                   Border.all(color: Colors.grey, width: 0.7),
-                              color: Colors.white,
+                              color: Theme.of(context).iconTheme.color,
                               borderRadius: BorderRadius.circular(18.0)),
                           child: Center(
                               child: Text("Message".toUpperCase(),
                                   style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
                                       fontFamily: 'Montserrat',
                                       fontSize: 10.0,
                                       fontWeight: FontWeight.bold))),

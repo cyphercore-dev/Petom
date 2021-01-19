@@ -65,9 +65,6 @@ class _WalletScreenState extends State<WalletScreen> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Wallet'),
-      ),
       drawer: MainDrawer(),
       body: Stack(
         children: <Widget>[
@@ -77,7 +74,7 @@ class _WalletScreenState extends State<WalletScreen> {
           ),
           // balance
           Positioned(
-            top: 50,
+            top: 20,
             left: 135,
             child: Column(
               children: <Widget>[
@@ -123,7 +120,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       height: screenHeight * 0.65 - 20,
                       width: screenWidth,
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Theme.of(context).scaffoldBackgroundColor,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(32.0),
                               topRight: Radius.circular(32.0))),
@@ -152,7 +149,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               height: 50,
                               width: screenWidth,
                               decoration: BoxDecoration(
-                                  color: _BackgroundColor,
+                                  color: Theme.of(context).iconTheme.color,
                                   borderRadius: BorderRadius.circular(16)),
                               child: Align(
                                 alignment: Alignment.center,
@@ -179,7 +176,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       height: 65,
                       width: 140,
                       decoration: BoxDecoration(
-                          color: _color,
+                          color: Theme.of(context).iconTheme.color,
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
@@ -194,10 +191,12 @@ class _WalletScreenState extends State<WalletScreen> {
                               height: 32,
                               width: 32,
                               decoration: BoxDecoration(
-                                  color: _color2,
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                   borderRadius: BorderRadius.circular(8)),
                               child: Icon(Icons.arrow_drop_down,
-                                  size: 24, color: Colors.white)),
+                                  size: 24,
+                                  color: Theme.of(context).iconTheme.color)),
                           SizedBox(width: 15),
                           Text("ATOM",
                               style: TextStyle(

@@ -20,13 +20,13 @@ class PetBreedSelect extends StatelessWidget {
         margin: EdgeInsets.all(10.0),
         width: 80.0,
         decoration: BoxDecoration(
-          color:
-              isSelected ? Theme.of(context).primaryColor : Color(0xFFF8F2F7),
+          // color: isSelected ? Color(0xFFFED8D3) : null,
           borderRadius: BorderRadius.circular(20.0),
           border: isSelected
               ? Border.all(
-                  width: 8.0,
-                  color: Color(0xFFFED8D3),
+                  width: 4.0,
+                  color:
+                      Theme.of(context).iconTheme.color, // Color(0xFFFED8D3),
                 )
               : null,
         ),
@@ -42,7 +42,8 @@ class PetBreedSelect extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
-                      color: isSelected ? Colors.white : Colors.black,
+                      color:
+                          isSelected ? Theme.of(context).iconTheme.color : null,
                     ),
                   ),
                 ),

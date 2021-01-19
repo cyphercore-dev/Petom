@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:petom/pages/lobby/lobby_page.dart';
 import 'package:petom/pages/wallet/wallet_page.dart';
 import 'package:petom/pages/login/login_page.dart';
 
 class MainDrawer extends StatelessWidget {
-  Widget buildListTile(String title, IconData icon, Function tapHandler) {
+  Widget buildListTile(
+      String title, IconData icon, Color iconColor, Function tapHandler) {
     return ListTile(
       leading: Icon(
         icon,
         size: 26,
-        color: Colors.indigo,
+        color: iconColor,
       ),
       title: Text(
         title,
         style: TextStyle(
           fontFamily: 'Montserrat',
-          color: Colors.black87,
+          // color: Theme.of(context).iconTheme.color,
           fontSize: 24,
-          fontWeight: FontWeight.bold,
+          // fontWeight: FontWeight.bold,
         ),
       ),
       onTap: tapHandler,
@@ -25,6 +27,8 @@ class MainDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color iconColor = Theme.of(context).iconTheme.color;
+
     return Drawer(
       child: Column(
         children: <Widget>[
@@ -42,7 +46,7 @@ class MainDrawer extends StatelessWidget {
             //       color: Theme.of(context).accentColor),
             // ),
             decoration: new BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).iconTheme.color,
               image: DecorationImage(
                 image: new AssetImage('assets/images/logo.png'),
                 fit: BoxFit.cover,
@@ -53,16 +57,16 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          // buildListTile('Lobby', Icons.pets, () {
-          //   Navigator.of(context).pushNamed(TabsScreen.routeName);
-          // }),
+          buildListTile('Lobby', Icons.pets, iconColor, () {
+            Navigator.of(context).pushNamed(LobbyScreen.routeName);
+          }),
           // buildListTile('Profile', Icons.person, () {
           //   Navigator.of(context).pushNamed(ProfileScreen.routeName);
           // }),
-          buildListTile('Wallet', Icons.account_balance_wallet, () {
+          buildListTile('Wallet', Icons.account_balance_wallet, iconColor, () {
             Navigator.of(context).pushNamed(WalletScreen.routeName);
           }),
-          buildListTile('Logout', Icons.lock_outline, () {
+          buildListTile('Logout', Icons.lock_outline, iconColor, () {
             Navigator.of(context).pushNamed(LoginScreen.routeName);
           }),
         ],
