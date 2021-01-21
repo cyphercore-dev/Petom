@@ -57,15 +57,9 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          buildListTile('Lobby', Icons.pets, iconColor, () {
-            Navigator.of(context).pushNamed(LobbyScreen.routeName);
-          }),
-          // buildListTile('Profile', Icons.person, () {
-          //   Navigator.of(context).pushNamed(ProfileScreen.routeName);
+          // buildListTile('Lobby', Icons.pets, iconColor, () {
+          //   Navigator.of(context).pushNamed(LobbyScreen.routeName);
           // }),
-          buildListTile('Wallet', Icons.account_balance_wallet, iconColor, () {
-            Navigator.of(context).pushNamed(WalletScreen.routeName);
-          }),
           buildListTile('Logout', Icons.lock_outline, iconColor, () {
             Navigator.of(context).pushNamed(LoginScreen.routeName);
           }),

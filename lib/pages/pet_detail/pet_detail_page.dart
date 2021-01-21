@@ -6,13 +6,14 @@ class PetDetailScreen extends StatelessWidget {
   static const routeName = '/pet-detail';
 
   // final Pet pet;
-  final Function toggleFavorite;
-  final Function isFavorite;
+  // final Function toggleFavorite;
+  // final Function isFavorite;
 
   PetDetailScreen(
-      //this.pet,
-      this.toggleFavorite,
-      this.isFavorite);
+      // this.pet,
+      // this.toggleFavorite,
+      // this.isFavorite
+      );
 
   Widget _buildInfoCard(String label, String info) {
     return Container(
@@ -90,27 +91,27 @@ class PetDetailScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 40.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    selectedPet.name,
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                      icon: Icon(
-                        isFavorite(selectedPet.id)
-                            ? Icons.favorite
-                            : Icons.favorite_border,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      selectedPet.name,
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
                       ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                          // isFavorite(selectedPet.id)
+                          //     ? Icons.favorite
+                          //     : Icons.favorite_border,
+                          Icons.favorite_border),
                       iconSize: 30.0,
-                      color: Theme.of(context).primaryColor,
-                      onPressed: () => toggleFavorite(selectedPet.id)),
-                ],
-              ),
+                      color: Theme.of(context).iconTheme.color,
+                      onPressed: () => {}, // toggleFavorite(selectedPet.id)),
+                    )
+                  ]),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 40.0),
@@ -119,7 +120,7 @@ class PetDetailScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 16.0,
-                  color: Colors.grey,
+                  // color: Colors.grey,
                 ),
               ),
             ),
@@ -172,19 +173,20 @@ class PetDetailScreen extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
+                    color: Theme.of(context).iconTheme.color,
                   ),
                 ),
                 subtitle: Text(
                   'Owner',
                   style: TextStyle(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black,
                     fontFamily: 'Montserrat',
                   ),
                 ),
                 trailing: Text(
                   '1.68 km',
                   style: TextStyle(
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.black,
                     fontFamily: 'Montserrat',
                   ),
                 ),
@@ -220,7 +222,7 @@ class PetDetailScreen extends StatelessWidget {
                     padding: EdgeInsets.all(
                       20.0,
                     ),
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).iconTheme.color,
                     onPressed: () => print('Adopt'),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
