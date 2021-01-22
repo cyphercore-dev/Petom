@@ -55,6 +55,7 @@ class PetDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final petId = ModalRoute.of(context).settings.arguments as int;
     final selectedPet = DUMMY_PETS.firstWhere((pet) => pet.id == petId);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

@@ -4,12 +4,24 @@ import 'package:petom/models/breed_model.dart';
 
 const DUMMY_BREEDS = const [
   Breed(
+    id: 'c7',
+    name: 'Golden Retriever',
+  ),
+  Breed(
     id: 'c8',
     name: 'Labrador',
   ),
   Breed(
     id: 'c9',
     name: 'French Bulldog',
+  ),
+  Breed(
+    id: 'c10',
+    name: 'Pitbull',
+  ),
+  Breed(
+    id: 'c11',
+    name: 'Beagle',
   ),
 ];
 
@@ -19,45 +31,53 @@ const DUMMY_OWNER = const Owner(
     bio:
         'I recently got laid off and ended up having to move into a place that doesn\'t allow pets. Looking for someone that can give my dog the best life possible.');
 
-const DUMMY_PETS = const [
+final DUMMY_PETS = [
   Pet(
     owner: DUMMY_OWNER,
     name: 'Katherine',
+    breed: DUMMY_BREEDS[0],
     imageUrl: 'assets/images/golden.jpeg',
-    description: 'Golden Retriever',
+    description: 'Goofball',
     age: 1,
     sex: 'Female',
     color: 'Light Golden',
     id: 12345,
+    isFavourite: false,
   ),
   Pet(
     owner: DUMMY_OWNER,
     name: 'Darlene',
+    breed: DUMMY_BREEDS[1],
     imageUrl: 'assets/images/labrador.jpeg',
-    description: 'Labrador',
+    description: 'Dealer of hearts',
     age: 1,
     sex: 'Female',
     color: 'Yellow',
     id: 98765,
+    isFavourite: false,
   ),
   Pet(
     owner: DUMMY_OWNER,
     name: 'Bella',
+    breed: DUMMY_BREEDS[3],
     imageUrl: 'assets/images/bella.jpg',
-    description: 'Pitbull',
+    description: 'Sassy turkey butt',
     age: 5,
     sex: 'Female',
     color: 'brindle',
     id: 10145,
+    isFavourite: false,
   ),
   Pet(
     owner: DUMMY_OWNER,
     name: 'Oliver',
+    breed: DUMMY_BREEDS[4],
     imageUrl: 'assets/images/beagle.jpg',
-    description: 'Labrador retriever puppy',
+    description: 'Tiny puppy with lots of attitude',
     age: 1,
     sex: 'Male',
     color: 'Chocolate Tri',
     id: 98764,
+    isFavourite: false,
   ),
 ];

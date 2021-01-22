@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:petom/models/breed_model.dart';
 import 'package:petom/pages/pet_detail/pet_detail_page.dart';
 
 class PetItem extends StatelessWidget {
   final int id;
   final String name;
+  final Breed breed;
   final String imageUrl;
   final String description;
 
   PetItem(
       {@required this.id,
       @required this.name,
+      @required this.breed,
       @required this.imageUrl,
       @required this.description});
 
