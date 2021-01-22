@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petom/dummy_data.dart';
 import 'package:petom/pages/user_profile/user_profile_page.dart';
+import 'package:petom/providers/pets_provider.dart';
+import 'package:provider/provider.dart';
 
 class PetDetailScreen extends StatelessWidget {
   static const routeName = '/pet-detail';
@@ -55,6 +57,9 @@ class PetDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final petId = ModalRoute.of(context).settings.arguments as int;
     final selectedPet = DUMMY_PETS.firstWhere((pet) => pet.id == petId);
+    // --- !!! BELOW DOESN'T WORK. NEED FIXING !!! --- //
+    // final selectedPet =
+    //     Provider.of<Pets>(context, listen: false).findById(petId);
 
     return Scaffold(
       body: SingleChildScrollView(

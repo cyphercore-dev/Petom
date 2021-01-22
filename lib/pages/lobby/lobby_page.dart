@@ -3,7 +3,7 @@ import 'package:petom/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 import './widgets/location.dart';
 import './widgets/filter.dart';
-import './widgets/pet_list.dart';
+import 'widgets/pets_list.dart';
 
 class LobbyScreen extends StatelessWidget {
   static const routeName = '/lobby';
@@ -23,7 +23,7 @@ class LobbyScreen extends StatelessWidget {
           // ),
           Filter(),
           SizedBox(height: 10.0),
-          PetList(),
+          PetsList(),
           // PetItem(DUMMY_PETS[0].id, DUMMY_PETS[0].name, DUMMY_PETS[0].imageUrl, DUMMY_PETS[0].description),
         ],
       ),

@@ -21,11 +21,11 @@ class FavoritesScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: 5, top: 20),
         itemBuilder: (ctx, index) {
           return PetItem(
-            id: favoritePets[index].id,
-            name: favoritePets[index].name,
-            imageUrl: favoritePets[index].imageUrl,
-            description: favoritePets[index].description,
-          );
+              // id: favoritePets[index].id,
+              // name: favoritePets[index].name,
+              // imageUrl: favoritePets[index].imageUrl,
+              // description: favoritePets[index].description,
+              );
         },
         itemCount: favoritePets.length,
       );

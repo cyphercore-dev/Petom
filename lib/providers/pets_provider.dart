@@ -9,6 +9,10 @@ class Pets with ChangeNotifier {
     return [..._pets]; // return a copy
   }
 
+  Pet findById(int id) {
+    return _pets.firstWhere((pet) => pet.id == id);
+  }
+
   void addPet() {
     notifyListeners();
   }

@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:petom/models/breed_model.dart';
+import 'package:petom/models/pet_model.dart';
 import 'package:petom/pages/pet_detail/pet_detail_page.dart';
+import 'package:provider/provider.dart';
 
 class PetItem extends StatelessWidget {
-  final int id;
-  final String name;
-  final Breed breed;
-  final String imageUrl;
-  final String description;
+  // final int id;
+  // final String name;
+  // final Breed breed;
+  // final String imageUrl;
+  // final String description;
 
-  PetItem(
-      {@required this.id,
-      @required this.name,
-      @required this.breed,
-      @required this.imageUrl,
-      @required this.description});
+  // PetItem(
+  //     {@required this.id,
+  //     @required this.name,
+  //     @required this.breed,
+  //     @required this.imageUrl,
+  //     @required this.description});
 
-  void selectPet(BuildContext context) {
+  void selectPet(BuildContext context, Pet pet) {
     Navigator.of(context)
         .pushNamed(
       PetDetailScreen.routeName,
-      arguments: id,
+      arguments: pet.id,
     )
         .then((result) {
       if (result != null) {
@@ -32,15 +34,17 @@ class PetItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pet = Provider.of<Pet>(context);
+
     return GestureDetector(
-      onTap: () => selectPet(context),
+      onTap: () => selectPet(context, pet),
       child: Padding(
         padding: EdgeInsets.only(left: 40.0, bottom: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Hero(
-              tag: id,
+              tag: pet.id,
               child: Container(
                 width: double.infinity,
                 height: 200.0,
@@ -50,7 +54,7 @@ class PetItem extends StatelessWidget {
                     bottomLeft: Radius.circular(20.0),
                   ),
                   image: DecorationImage(
-                    image: AssetImage(imageUrl),
+                    image: AssetImage(pet.imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -62,7 +66,7 @@ class PetItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    name,
+                    pet.name,
                     style: TextStyle(
                       fontFamily: 'Montserrat',
                       fontSize: 24.0,
@@ -70,11 +74,14 @@ class PetItem extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                      icon: Icon(Icons.favorite_border),
+                      icon: Icon(pet.isFavourite
+                          ? Icons.favorite
+                          : Icons.favorite_border),
                       iconSize: 30.0,
                       color: Theme.of(context).iconTheme.color,
-                      // TO-DO: use provider to pass data around
-                      onPressed: () => {} // toggleFavorite(pet.id),
+                      onPressed: () => {
+                            pet.toggleFavoriteStatus()
+                          } // toggleFavorite(pet.id),
                       ),
                 ],
               ),
@@ -82,7 +89,7 @@ class PetItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.fromLTRB(12.0, 0.0, 40.0, 12.0),
               child: Text(
-                description,
+                pet.description,
                 style: TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 16.0,

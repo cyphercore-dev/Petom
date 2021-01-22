@@ -2,7 +2,7 @@ import 'package:petom/models/breed_model.dart';
 import 'package:petom/models/owner_model.dart';
 import 'package:flutter/foundation.dart';
 
-class Pet {
+class Pet with ChangeNotifier {
   final Owner owner;
   final String name;
   final Breed breed;
@@ -26,4 +26,9 @@ class Pet {
     @required this.id,
     this.isFavourite,
   });
+
+  void toggleFavoriteStatus() {
+    isFavourite = !isFavourite;
+    notifyListeners();
+  }
 }
