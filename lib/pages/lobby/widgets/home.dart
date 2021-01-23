@@ -8,19 +8,26 @@ import 'package:petom/pages/favourite/favs_page.dart';
 import 'package:petom/models/pet_model.dart';
 import 'package:petom/pages/wallet/wallet_page.dart';
 
-class TabsScreen extends StatefulWidget {
-  static const routeName = '/tabs';
-
-  final List<Pet> favoritePets;
-  TabsScreen(this.favoritePets);
-
-  @override
-  _TabsScreenState createState() => _TabsScreenState();
+enum AppBarFilters {
+  Favourites,
+  All,
+  NightModeSwitch,
 }
 
-class _TabsScreenState extends State<TabsScreen> {
+class HomeScreen extends StatefulWidget {
+  static const routeName = '/home';
+
+  final List<Pet> favoritePets;
+  HomeScreen(this.favoritePets);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, Object>> _pages;
   int _selectedPageIndex = 1;
+  var _showFavsOnly = false;
 
   @override
   void initState() {
@@ -30,7 +37,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Profile',
       },
       {
-        'page': LobbyScreen(),
+        'page': LobbyScreen(_showFavsOnly),
         'title': 'Lobby',
       },
       {
@@ -64,7 +71,27 @@ class _TabsScreenState extends State<TabsScreen> {
               )),
           elevation: 0,
           actions: [
-            ChangeThemeButtonWidget(),
+            // ChangeThemeButtonWidget(),
+            PopupMenuButton(
+              onSelected: (AppBarFilters selectedValue) {
+                setState(() {
+                  if (selectedValue == AppBarFilters.Favourites) {
+                    _showFavsOnly = true;
+                  } else if (selectedValue == AppBarFilters.All) {
+                    _showFavsOnly = false;
+                  }
+                });
+              },
+              icon: Icon(Icons.more_vert),
+              itemBuilder: (_) => [
+                PopupMenuItem(
+                    child: Text("Favs Only"), value: AppBarFilters.Favourites),
+                PopupMenuItem(child: Text("All"), value: AppBarFilters.All),
+                PopupMenuItem(
+                    child: ChangeThemeButtonWidget(),
+                    value: AppBarFilters.NightModeSwitch),
+              ],
+            )
           ],
         ),
         drawer: MainDrawer(),

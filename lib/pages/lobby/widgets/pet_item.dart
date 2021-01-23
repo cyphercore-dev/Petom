@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:petom/models/breed_model.dart';
 import 'package:petom/models/pet_model.dart';
 import 'package:petom/pages/pet_detail/pet_detail_page.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +33,7 @@ class PetItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pet = Provider.of<Pet>(context);
+    final pet = Provider.of<Pet>(context, listen: false);
 
     return GestureDetector(
       onTap: () => selectPet(context, pet),
@@ -73,16 +72,15 @@ class PetItem extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(
-                      icon: Icon(pet.isFavourite
-                          ? Icons.favorite
-                          : Icons.favorite_border),
-                      iconSize: 30.0,
-                      color: Theme.of(context).iconTheme.color,
-                      onPressed: () => {
-                            pet.toggleFavoriteStatus()
-                          } // toggleFavorite(pet.id),
-                      ),
+                  Consumer<Pet>(
+                    builder: (ctx, pet, _) => IconButton(
+                        icon: Icon(pet.isFavourite
+                            ? Icons.favorite
+                            : Icons.favorite_border),
+                        iconSize: 30.0,
+                        color: Theme.of(context).iconTheme.color,
+                        onPressed: () => {pet.toggleFavoriteStatus()}),
+                  ),
                 ],
               ),
             ),

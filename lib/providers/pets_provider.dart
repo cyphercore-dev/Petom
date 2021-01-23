@@ -9,6 +9,10 @@ class Pets with ChangeNotifier {
     return [..._pets]; // return a copy
   }
 
+  List<Pet> get favPets {
+    return _pets.where((pet) => pet.isFavourite).toList();
+  }
+
   Pet findById(int id) {
     return _pets.firstWhere((pet) => pet.id == id);
   }

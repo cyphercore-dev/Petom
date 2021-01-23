@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petom/animations/fade_animation.dart';
-import 'package:petom/pages/lobby/widgets/tabs.dart';
+import 'package:petom/pages/lobby/widgets/home.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/login';
@@ -135,7 +135,7 @@ class LoginScreen extends StatelessWidget {
                                   color: Colors.amber),
                               child: GestureDetector(
                                 onTap: () => Navigator.of(context)
-                                    .pushNamed(TabsScreen.routeName),
+                                    .pushNamed(HomeScreen.routeName),
                                 child: Center(
                                     child: Text(
                                   "Login",

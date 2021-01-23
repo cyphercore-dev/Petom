@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petom/pages/lobby/lobby_page.dart';
-import 'package:petom/pages/wallet/wallet_page.dart';
 import 'package:petom/pages/login/login_page.dart';
 
 class MainDrawer extends StatelessWidget {

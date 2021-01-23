@@ -36,7 +36,7 @@ class _ApplicationState extends State<Application> {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+      create: (_) => ThemeProvider(),
       builder: (context, _) {
         final themeProvider = Provider.of<ThemeProvider>(context);
 
@@ -51,9 +51,9 @@ class _ApplicationState extends State<Application> {
           routes: routes,
           navigatorObservers: [routeObserver],
           onUnknownRoute: (settings) {
-            return MaterialPageRoute(
-                // builder: (ctx) => HomeScreen(),
-                );
+            // return MaterialPageRoute(
+            //     // builder: (ctx) => HomeScreen(),
+            //     );
           },
         );
       });

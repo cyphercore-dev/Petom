@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:petom/dummy_data.dart';
 import 'package:petom/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 import 'pet_item.dart';
 
 class PetsList extends StatelessWidget {
   // const PetsList({Key key}) : super(key: key);
+  final bool showFavsOnly;
+  PetsList(this.showFavsOnly);
 
   @override
   Widget build(BuildContext context) {
     final petsData = Provider.of<Pets>(context);
-    final pets = petsData.pets;
+    final pets = showFavsOnly ? petsData.favPets : petsData.pets;
 
     return Container(
       height: 450,
@@ -18,15 +19,11 @@ class PetsList extends StatelessWidget {
         padding: const EdgeInsets.only(left: 5, top: 20),
         children: pets
             .map(
-              (data) => ChangeNotifierProvider(
-                create: (context) => data,
-                child: PetItem(
-                    // id: data.id,
-                    // name: data.name,
-                    // breed: data.breed,
-                    // imageUrl: data.imageUrl,
-                    // description: data.description,
-                    ),
+              // use ChangeNotifierProvider.value + value
+              // on existing pbjects
+              (data) => ChangeNotifierProvider.value(
+                value: data,
+                child: PetItem(),
               ),
             )
             .toList(),
