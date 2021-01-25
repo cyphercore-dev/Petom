@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petom/pages/lobby/widgets/home.dart';
+import 'package:petom/pages/home/home_page.dart';
 import 'package:petom/pages/login/login_page.dart';
 import 'package:petom/pages/pet_detail/pet_detail_page.dart';
 import 'package:petom/pages/user_profile/user_profile_page.dart';

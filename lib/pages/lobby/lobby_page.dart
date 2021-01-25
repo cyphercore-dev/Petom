@@ -5,10 +5,10 @@ import './widgets/location.dart';
 import './widgets/filter.dart';
 import 'widgets/pets_list.dart';
 
-class LobbyScreen extends StatelessWidget {
+class Lobby extends StatelessWidget {
   static const routeName = '/lobby';
   final bool showFavsOnly;
-  LobbyScreen(this.showFavsOnly);
+  Lobby(this.showFavsOnly);
 
   @override
   Widget build(BuildContext context) {
