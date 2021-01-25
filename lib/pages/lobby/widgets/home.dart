@@ -11,7 +11,6 @@ import 'package:petom/pages/wallet/wallet_page.dart';
 enum AppBarFilters {
   Favourites,
   All,
-  NightModeSwitch,
 }
 
 class HomeScreen extends StatefulWidget {
@@ -71,8 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
           elevation: 0,
           actions: [
-            // ChangeThemeButtonWidget(),
+            ChangeThemeButtonWidget(),
             PopupMenuButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
               onSelected: (AppBarFilters selectedValue) {
                 setState(() {
                   if (selectedValue == AppBarFilters.Favourites) {
@@ -85,11 +86,45 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.more_vert),
               itemBuilder: (_) => [
                 PopupMenuItem(
-                    child: Text("Favs Only"), value: AppBarFilters.Favourites),
-                PopupMenuItem(child: Text("All"), value: AppBarFilters.All),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(
+                        Icons.favorite,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
+                      title: Text("Favs Only"),
+                    ),
+                    value: AppBarFilters.Favourites),
                 PopupMenuItem(
-                    child: ChangeThemeButtonWidget(),
-                    value: AppBarFilters.NightModeSwitch),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(
+                        Icons.favorite_border,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
+                      title: Text("All"),
+                    ),
+                    value: AppBarFilters.All),
+                PopupMenuItem(
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(
+                        Icons.settings,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
+                      title: Text("Settings"),
+                    ),
+                    value: AppBarFilters.All),
+                PopupMenuItem(
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(
+                        Icons.logout,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
+                      title: Text("Log Out"),
+                    ),
+                    value: AppBarFilters.All),
               ],
             )
           ],

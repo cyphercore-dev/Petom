@@ -14,7 +14,9 @@ class ChangeThemeButtonWidget extends StatelessWidget {
         provider.toggleTheme(value);
       },
       activeColor: Theme.of(context).iconTheme.color,
-      inactiveThumbColor: Theme.of(context).iconTheme.color,
+      inactiveTrackColor: Theme.of(context).iconTheme.color,
+      activeThumbImage: AssetImage('assets/images/night_mode.png'),
+      inactiveThumbImage: AssetImage('assets/images/night_mode.png'),
     );
   }
 }
