@@ -3,7 +3,7 @@ import 'package:petom/providers/pets_provider.dart';
 import 'package:provider/provider.dart';
 import './widgets/location.dart';
 import './widgets/filter.dart';
-import 'widgets/pets_list.dart';
+import 'widgets/pet/pets_listview.dart';
 
 class Lobby extends StatelessWidget {
   static const routeName = '/lobby';

@@ -8,7 +8,7 @@ import 'dummy_data.dart';
 
 final routes = {
   '/': (_) => LoginScreen(),
-  HomeScreen.routeName: (_) => HomeScreen(DUMMY_PETS),
+  HomeScreen.routeName: (_) => HomeScreen(),
   LoginScreen.routeName: (_) => LoginScreen(),
   ProfileScreen.routeName: (_) => ProfileScreen(),
   WalletScreen.routeName: (_) => WalletScreen(),

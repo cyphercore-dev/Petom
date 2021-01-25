@@ -5,20 +5,7 @@ import 'package:petom/pages/pet_detail/pet_detail_page.dart';
 import 'package:provider/provider.dart';
 
 class PetItem extends StatelessWidget {
-  // final int id;
-  // final String name;
-  // final Breed breed;
-  // final String imageUrl;
-  // final String description;
-
-  // PetItem(
-  //     {@required this.id,
-  //     @required this.name,
-  //     @required this.breed,
-  //     @required this.imageUrl,
-  //     @required this.description});
-
-  void selectPet(BuildContext context, Pet pet) {
+  void viewPetDetail(BuildContext context, Pet pet) {
     Navigator.of(context)
         .pushNamed(
       PetDetailScreen.routeName,
@@ -36,7 +23,7 @@ class PetItem extends StatelessWidget {
     final pet = Provider.of<Pet>(context, listen: false);
 
     return GestureDetector(
-      onTap: () => selectPet(context, pet),
+      onTap: () => viewPetDetail(context, pet),
       child: Padding(
         padding: EdgeInsets.only(left: 40.0, bottom: 10.0),
         child: Column(

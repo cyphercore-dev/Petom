@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'pet_item.dart';
 
 class PetsList extends StatelessWidget {
-  // const PetsList({Key key}) : super(key: key);
   final bool showFavsOnly;
   PetsList(this.showFavsOnly);
 

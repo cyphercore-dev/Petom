@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Location extends StatelessWidget {
-  const Location({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,6 +23,7 @@ class Location extends StatelessWidget {
           labelText: 'Location',
           labelStyle: TextStyle(
             fontSize: 20.0,
+            color: Theme.of(context).iconTheme.color,
           ),
           // contentPadding: EdgeInsets.only(bottom: 20.0),
         ),

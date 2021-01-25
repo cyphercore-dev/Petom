@@ -24,7 +24,7 @@ class Pet with ChangeNotifier {
     @required this.sex,
     @required this.color,
     @required this.id,
-    this.isFavourite,
+    this.isFavourite = false,
   });
 
   void toggleFavoriteStatus() {

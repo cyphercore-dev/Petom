@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class bottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatelessWidget {
   final int selectedPageIndex;
   final Function selectPage;
-  bottomNavBar(this.selectedPageIndex, this.selectPage);
+  BottomNavBar(this.selectedPageIndex, this.selectPage);
 
   @override
   Widget build(BuildContext context) {

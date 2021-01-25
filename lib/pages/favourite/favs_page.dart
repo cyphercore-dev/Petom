@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petom/models/pet_model.dart';
-import '../lobby/widgets/pet_item.dart';
+import '../lobby/widgets/pet/pet_item.dart';
 
 class FavoritesScreen extends StatelessWidget {
   final List<Pet> favoritePets;
